@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<web-app
+xmlns="http://java.sun.com/xml/ns/j2ee"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+version="2.4">
+
+   	<listener>
+      <listener-class>wiki.web.Init</listener-class>
+  	</listener>
+  	
+ 	<filter>
+      <filter-name>log-filter</filter-name>
+      <filter-class>wiki.web.LogFilter</filter-class>
+	</filter>
+   	<filter-mapping>
+      <filter-name>log-filter</filter-name>
+      <url-pattern>/*</url-pattern>
+   	</filter-mapping>
+   
+   	<servlet>
+      <servlet-name>view-page</servlet-name>
+      <servlet-class>wiki.web.ViewPageServlet</servlet-class>
+   	</servlet>
+   	<servlet-mapping>
+      <servlet-name>view-page</servlet-name>
+      <url-pattern>/view/*</url-pattern>
+   	</servlet-mapping>
+   
+   	<servlet>
+      <servlet-name>edit-page</servlet-name>
+      <servlet-class>wiki.web.EditPageServlet</servlet-class>
+   	</servlet>
+   	<servlet-mapping>
+      <servlet-name>edit-page</servlet-name>
+      <url-pattern>/edit/*</url-pattern>
+   	</servlet-mapping>
+   	
+  	<servlet>
+      <servlet-name>publish-page</servlet-name>
+      <servlet-class>wiki.web.PublishPageServlet</servlet-class>
+   	</servlet>
+   	<servlet-mapping>
+      <servlet-name>publish-page</servlet-name>
+      <url-pattern>/publish/*</url-pattern>
+  	</servlet-mapping>
+  	
+   	<servlet>
+      <servlet-name>unpublish-page</servlet-name>
+      <servlet-class>wiki.web.UnpublishPageServlet</servlet-class>
+   	</servlet>
+  	 <servlet-mapping>
+      <servlet-name>unpublish-page</servlet-name>
+      <url-pattern>/unpublish/*</url-pattern>
+  	</servlet-mapping>
+  	
+</web-app>
